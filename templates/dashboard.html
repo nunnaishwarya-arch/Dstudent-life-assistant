@@ -1,0 +1,323 @@
+{% extends "base.html" %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+
+<div class="dashboard">
+
+    <!-- =========================
+         DASHBOARD HEADER
+    ========================== -->
+
+    <div class="dashboard-header">
+
+        <div>
+
+            <p class="small-label">
+                YOUR DASHBOARD
+            </p>
+
+            <h1>
+                Welcome, {{ current_user.name }} 👋
+            </h1>
+
+            <p>
+                Everything you need for student life in one place.
+            </p>
+
+        </div>
+
+        <div class="profile-circle">
+            {{ current_user.name[0].upper() }}
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         STATISTICS
+    ========================== -->
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+
+            <span>📝</span>
+
+            <h3>
+                {{ total_quizzes }}
+            </h3>
+
+            <p>
+                Quizzes
+            </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>🎯</span>
+
+            <h3>
+                {{ accuracy }}%
+            </h3>
+
+            <p>
+                Accuracy
+            </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>✅</span>
+
+            <h3>
+                {{ total_correct }}
+            </h3>
+
+            <p>
+                Correct Answers
+            </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>🏆</span>
+
+            <h3>
+                {{ best_score }}%
+            </h3>
+
+            <p>
+                Best Score
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         MAIN STUDENT TOOLS
+    ========================== -->
+
+    <div class="dashboard-card tools-dashboard-card">
+
+        <div class="dashboard-section-title">
+
+            <div>
+
+                <p class="small-label">
+                    STUDENT TOOLS
+                </p>
+
+                <h2>
+                    What do you want to do?
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="student-tools-grid">
+
+
+            <!-- AI QUIZ -->
+
+            <a href="/quiz"
+               class="student-tool-card">
+
+                <div class="student-tool-icon">
+                    🤖
+                </div>
+
+                <div>
+
+                    <h3>
+                        AI Quiz Generator
+                    </h3>
+
+                    <p>
+                        Generate an interactive quiz
+                        on any topic using AI.
+                    </p>
+
+                </div>
+
+                <span class="tool-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+            <!-- CGPA -->
+
+            <a href="/cgpa"
+               class="student-tool-card">
+
+                <div class="student-tool-icon">
+                    🧮
+                </div>
+
+                <div>
+
+                    <h3>
+                        CGPA Calculator
+                    </h3>
+
+                    <p>
+                        Calculate your CGPA and
+                        percentage quickly.
+                    </p>
+
+                </div>
+
+                <span class="tool-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+            <!-- GAME -->
+
+            <a href="/game"
+               class="student-tool-card">
+
+                <div class="student-tool-icon">
+                    🎮
+                </div>
+
+                <div>
+
+                    <h3>
+                        Mini Game
+                    </h3>
+
+                    <p>
+                        Take a short break and
+                        play a fun guessing game.
+                    </p>
+
+                </div>
+
+                <span class="tool-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+            <!-- FUTURE FEATURE -->
+
+            <a href="/dashboard"
+               class="student-tool-card">
+
+                <div class="student-tool-icon">
+                    📚
+                </div>
+
+                <div>
+
+                    <h3>
+                        My Learning
+                    </h3>
+
+                    <p>
+                        Track your quizzes and
+                        learning progress.
+                    </p>
+
+                </div>
+
+                <span class="tool-arrow">
+                    →
+                </span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         RECENT QUIZZES
+    ========================== -->
+
+    <div class="dashboard-card recent-card">
+
+        <h2>
+            📚 Recent Quiz Results
+        </h2>
+
+
+        {% if results %}
+
+            {% for result in results[:5] %}
+
+                <div class="quiz-history">
+
+                    <div>
+
+                        <strong>
+                            {{ result["topic"] }}
+                        </strong>
+
+                        <small>
+                            {{ result["quiz_date"] }}
+                        </small>
+
+                    </div>
+
+                    <span>
+                        {{ result["score"] }}/{{ result["total"] }}
+                    </span>
+
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <div class="empty-state">
+
+                <div>
+                    📝
+                </div>
+
+                <h3>
+                    No quizzes yet
+                </h3>
+
+                <p>
+                    Start your first AI quiz to see
+                    your results here.
+                </p>
+
+                <a href="/quiz"
+                   class="primary-button">
+
+                    Start First Quiz
+
+                </a>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}

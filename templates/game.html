@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}
+Mini Game
+{% endblock %}
+
+{% block content %}
+
+<div class="tool-page">
+
+    <div class="tool-header">
+
+        <div class="tool-icon">
+            🎮
+        </div>
+
+        <h1>
+            Number Guessing Game
+        </h1>
+
+        <p>
+            Guess a number between 1 and 100.
+        </p>
+
+    </div>
+
+
+    <div class="game-card">
+
+        <div class="game-number">
+            ?
+        </div>
+
+
+        <input
+            id="guess"
+            type="number"
+            min="1"
+            max="100"
+            placeholder="Enter your guess"
+        >
+
+
+        <button
+            onclick="makeGuess()"
+            class="primary-button full">
+
+            🎯 Guess
+
+        </button>
+
+
+        <div
+            id="game-message"
+            class="game-message">
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

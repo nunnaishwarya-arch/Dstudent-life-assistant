@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+
+<div class="auth-page">
+
+    <div class="auth-card">
+
+        <div class="auth-icon">
+            🎓
+        </div>
+
+        <h1>
+            Welcome Back
+        </h1>
+
+        <p>
+            Continue your student journey.
+        </p>
+
+        <form method="POST">
+
+            <label>
+                Email
+            </label>
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+            >
+
+            <label>
+                Password
+            </label>
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Enter your password"
+                required
+            >
+
+            <button
+                type="submit"
+                class="primary-button full">
+
+                Login
+
+            </button>
+
+        </form>
+
+        <p class="auth-bottom">
+
+            Don't have an account?
+
+            <a href="/register">
+                Create one
+            </a>
+
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}

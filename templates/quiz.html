@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block title %}
+AI Quiz
+{% endblock %}
+
+{% block content %}
+
+<div class="tool-page">
+
+    <div class="tool-header">
+
+        <div class="tool-icon">
+            🤖
+        </div>
+
+        <h1>
+            AI Quiz Generator
+        </h1>
+
+        <p>
+            Choose any topic and let AI create
+            an interactive quiz for you.
+        </p>
+
+    </div>
+
+
+    <div class="quiz-generator">
+
+        <label>
+            Topic
+        </label>
+
+        <input
+            id="topic"
+            type="text"
+            placeholder="Example: Python, Java, AI, DBMS"
+        >
+
+
+        <label>
+            Difficulty
+        </label>
+
+        <select id="difficulty">
+
+            <option>Easy</option>
+
+            <option>Medium</option>
+
+            <option>Hard</option>
+
+        </select>
+
+
+        <label>
+            Number of Questions
+        </label>
+
+        <select id="number">
+
+            <option value="3">
+                3
+            </option>
+
+            <option value="5" selected>
+                5
+            </option>
+
+            <option value="7">
+                7
+            </option>
+
+            <option value="10">
+                10
+            </option>
+
+        </select>
+
+
+        <button
+            onclick="generateQuiz()"
+            class="primary-button full">
+
+            ✨ Generate Quiz
+
+        </button>
+
+    </div>
+
+
+    <div id="quiz-area">
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,6 @@
+Flask
+Flask-Login
+Werkzeug
+groq
+python-dotenv
+gunicorn

@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}
+CGPA Calculator
+{% endblock %}
+
+{% block content %}
+
+<div class="tool-page">
+
+    <div class="tool-header">
+
+        <div class="tool-icon">
+            🧮
+        </div>
+
+        <h1>
+            CGPA Calculator
+        </h1>
+
+        <p>
+            Quickly convert percentage and CGPA.
+        </p>
+
+    </div>
+
+
+    <div class="calculator-card">
+
+        <form method="POST">
+
+            <label>
+                Choose Calculation
+            </label>
+
+            <select name="mode">
+
+                <option value="marks">
+                    Percentage → CGPA
+                </option>
+
+                <option value="cgpa">
+                    CGPA → Percentage
+                </option>
+
+            </select>
+
+
+            <label>
+                Enter Value
+            </label>
+
+            <input
+                type="number"
+                step="0.01"
+                name="value"
+                placeholder="Example: 85"
+                required
+            >
+
+
+            <button
+                type="submit"
+                class="primary-button full">
+
+                Calculate
+
+            </button>
+
+        </form>
+
+
+        {% if result %}
+
+            <div class="result-box">
+
+                <p>
+                    Your Result
+                </p>
+
+                <h2>
+                    {{ result.value }}
+                </h2>
+
+                <span>
+                    {{ result.extra }}
+                </span>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}
